@@ -1,0 +1,7 @@
+#eureka基本信息
+spring:
+  application:
+    name: springCloud2-eureka
+  profiles: 
+      active: dev #设置环境配置文件--多环境配置
+

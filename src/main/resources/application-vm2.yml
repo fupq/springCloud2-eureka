@@ -1,0 +1,26 @@
+#服务端口号
+server:
+  port: 8100
+security:
+  basic:
+    enable: true
+  user:
+    name: admin
+    password: 123456
+###eureka ������Ϣ����
+eureka:
+  instance:
+    #注册到eureka的ip地址ַ
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      #defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://admin:123456@192.168.1.111:8100/eureka/,http://admin:123456@192.168.1.14:8100/eureka/
+#是否注册到eureka，true:注册，false：不注册
+    register-with-eureka: true
+#是否检索服务，true:检索，false:不检索
+    fetch-registry: true
+  server:
+    # 生产环境打开自我保护机制，保证网络原因导致误删除服务
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 2000
